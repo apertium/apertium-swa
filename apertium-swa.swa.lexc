@@ -3,38 +3,380 @@
 Multichar_Symbols
 
 ! Part of speech categories
-%<n%>   ! Noun
+%<n%>     ! Noun
+%<prn%>   ! Pronoun
+%<vblex%> ! Verb
 
 ! Number morphology
 %<pl%>  ! Plural
 %<sg%>  ! Singular
+%<sp%>  ! Singular or Plural
+
+! Person morphology
+%<p1%>  ! 1st person
+%<p2%>  ! 2nd person
+%<p3%>  ! 3rd person
+
+! Verb tense and mood morphology
+%<pres%>    ! Present tense
+%<past%>    ! Unrelated distant past
+
+! Pronoun morpholgy
+%<pers%>   ! Personal pronoun
+
+! Noun-class morphology
+%<cl1%>     ! Class 1 noun(m-wa)
+%<cl3%>     ! Class 3 noun(m-mi)
+%<cl5%>     ! Class 5 noun(ji-ma)
+%<cl7%>     ! Class 7 noun(ki-vi)
+%<cl9%>     ! Class 9 noun(n-n)
+%<cl11%>    ! Class 11 noun(u-u)(u-zi)
+%<cl14%>    ! Class 14 noun(u-u)(u-u)
+%<cl15%>    ! Class 15 noun(ku-ku)
+!%<cl16%>    ! Class 16 noun(pa-pa)
+!%<cl17%>    ! Class 17 noun(mu-mu)
+!%<cl18%>    ! Class 18 noun(ku-ku)
+
+%[%+sg%]   ! Singular (noun prefix matching)
+%[%+pl%]   ! Plural (noun prefix matching)
+%[%+abs%]  ! Abstract (derived from non-abstract)
+%[%+def%]  ! Definite (used w. plural)
+%[%+inst%] ! Instantiation of abstract concept
+
+%[%-sg%]   ! Singular (noun prefix matching)
+%[%-pl%]   ! Plural (noun prefix matching)
+%[%-abs%]  ! Abstract (derived from non-abstract)
+%[%-def%]  ! Definite (used w. plural)
+%[%-inst%] ! Instantiation of abstract concept
 
 ! Other symbols
 %>      ! Morpheme boundary
+%       ! Space
+%-
+%+
 
-
+  
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                       M O R P H O T A C T I C S                         !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 LEXICON Root
+NounPrefix ;
+Pronouns;
+!VerbPersonNum-Prefix;
 
-NounRoot ;
+LEXICON COMMON-Suffix
+# ;
+
+!=============================================================================!
+!                         Noun Morphotactics                                  !
+!=============================================================================!
 
 
-LEXICON RegNounInfl
+LEXICON NounPrefix
+I-II ;
+I-Irr;
+III-IV ;
+V-VI ;
+VII-VIII ;
+IX-X ;
+XI ;
+XIV ; 
+!XV ;
+!XVI ;
+!XVII ;
+!XVIII ;
 
-%<n%>%<sg%>: # ;
-%<n%>%<pl%>:%>s # ;
+
+LEXICON I-II
+! TODO: prefix before vowel(mw)
+%[%-sg%]:m%> I-II-Stems ;
+%[%-pl%]:wa%> I-II-Stems ;
+
+LEXICON I-Irr
+I-Irr-Stems ;
+
+LEXICON III-IV
+! TODO: prefix before vowel(mw)
+%[%-sg%]:m%> III-IV-Stems ;
+%[%-pl%]:mi%> III-IV-Stems ;
+
+LEXICON V-VI
+! TODO: prefix before vowel(j)
+!%[%-sg%]:ji%> V-VI-Stems ;
+%[%-sg%]: V-VI-Stems ;
+%[%-pl%]:ma%> V-VI-Stems ;
+
+LEXICON VII-VIII
+%[%-sg%]:ki%> VII-VIII-Stems ;
+%[%-pl%]:vi%> VII-VIII-Stems ;
+
+LEXICON IX-X
+! TODO: prefix before vowel(ny)
+IX-X-Stems ;
+
+LEXICON XI
+%[%-sg%]: XI-Stems ;
+
+LEXICON XIV
+%[%-sg%]: XIV-Stems ;
+
+!LEXICON XV
+!%[%-sg%]:ku%> XV-Stems ;
+
+!LEXICON XVI
+!XVI-Stems ;
+
+!LEXICON XVII
+!XVII-Stems ;
+
+!LEXICON XVIII
+!XVIII-Stems ;
+
+
+LEXICON I-II-Suffix
+%[%+sg%]%<n%>%<cl1%>%<sg%>: COMMON-Suffix ;
+%[%+pl%]%<n%>%<cl1%>%<pl%>: COMMON-Suffix ;
+
+LEXICON I-Irr-Suffix
+%<n%>%<cl1%>%<sp%>: COMMON-Suffix ;
+
+LEXICON III-IV-Suffix
+%[%+sg%]%<n%>%<cl3%>%<sg%>: COMMON-Suffix ;
+%[%+pl%]%<n%>%<cl3%>%<pl%>: COMMON-Suffix ;
+
+LEXICON V-VI-Suffix
+%[%+sg%]%<n%>%<cl5%>%<sg%>: COMMON-Suffix ;
+!%[%+pl%]%<n%>%<cl5%>%<pl%>: COMMON-Suffix ;
+
+LEXICON VII-VIII-Suffix
+%[%+sg%]%<n%>%<cl7%>%<sg%>: COMMON-Suffix ;
+%[%+pl%]%<n%>%<cl7%>%<pl%>: COMMON-Suffix ;
+
+LEXICON IX-X-Suffix
+%<n%>%<cl9%>%<sp%>: COMMON-Suffix ;
+
+LEXICON XI-Suffix
+%[%+sg%]%<n%>%<cl11%>%<sg%>: COMMON-Suffix ;
+
+LEXICON XIV-Suffix
+%[%+sg%]%<n%>%<cl14%>%<sg%>: COMMON-Suffix ;
+
+!LEXICON XV-Suffix
+!%[%+sg%]%<n%>%<cl15%>%<sg%>: COMMON-Suffix ;
+
+!LEXICON XVI-Suffix
+!%[%+sg%]%<n%>%<cl16%>%<sg%>: COMMON-Suffix ;
+
+!LEXICON XVII-Suffix
+!%[%+sg%]%<n%>%<cl17%>%<sg%>: COMMON-Suffix ;
+
+!LEXICON XVIII-Suffix
+!%[%+sg%]%<n%>%<cl18%>%<sg%>: COMMON-Suffix ;
+
+
+!=============================================================================!
+!                         Pronoun Morphotactics                               !
+!=============================================================================!
+
+LEXICON PRON-Mimi
+%<prn%>%<pers%>%<p1%>%<sg%>: COMMON-Suffix ;
+
+LEXICON PRON-Sisi
+%<prn%>%<pers%>%<p1%>%<pl%>: COMMON-Suffix ;
+
+LEXICON PRON-Wewe
+%<prn%>%<pers%>%<p2%>%<sg%>: COMMON-Suffix ;
+
+LEXICON PRON-Nyi
+%<prn%>%<pers%>%<p2%>%<pl%>: COMMON-Suffix ;
+
+LEXICON PRON-Yeye
+%<prn%>%<pers%>%<p3%>%<sg%>: COMMON-Suffix ;
+
+LEXICON PRON-Wao
+%<prn%>%<pers%>%<p3%>%<pl%>: COMMON-Suffix ;
+
+!=============================================================================!
+!                         Verb Morphotactics                                  !
+!=============================================================================!
+
+!LEXICON VerbPersonNum-Prefix
+!%[%-p1%]%[%-sg%]:ni%> V-TAM-REL-OBJ-Stem ;
+!%[%-p2%]%[%-sg%]:u%> V-FutRefOrStem ;
+!%[%-p3%]%[%-sg%]:a%> V-FutRefOrStem ;
+!%[%-p1%]%[%-pl%]:tu%> V-FutRefOrStem ;
+!%[%-p2%]%[%-pl%]:m%> V-FutRefOrStem ;
+!%[%-p3%]%[%-pl%]:wa%> V-FutRefOrStem ;
+!%<p1%>%<sg%>:ni%> V-TAM-REL-OBJ-Stem ;
+
+
+!LEXICON V-TAM-REL-OBJ-Stem
+!V-Stems;
+!V-TAM-Prefix;
+
+!LEXICON V-TAM-Prefix
+!%<vblex%>%<pres%>:na%> V-Stems ;
+!%<vblex%>%<pres%>:me%> V-Stems ;
+!%<vblex%>%<pres%>:li%> V-Stems ;
+!%<vblex%>%<pres%>:ta%> V-Stems ;
+!%<vblex%>%<pres%>:hu%> V-Stems ;
+
+
+!LEXICON V-Suffix
+!%[%+p1%]%[%+sg%]%<p1%>%<sg%>%<aa%>:a COMMON-Suffix ;
+
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!                          L E X I C O N                                  !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-LEXICON NounRoot
+! Nouns
 
-house:house RegNounInfl ; ! A noun
+LEXICON I-II-Stems
+mtu:tu I-II-Suffix ; ! "Person"
+mtoto:toto I-II-Suffix ; ! "Child"
+mkulima:kulima I-II-Suffix ; ! "Farmer"
+mke:ke I-II-Suffix ; ! "Wife"
+msichana:sichana I-II-Suffix ; ! "Girl"
+mvulana:vulana I-II-Suffix ; ! "Boy"
+mgeni:geni I-II-Suffix ; ! "Visitor"
+mfaransa:faransa I-II-Suffix ; ! "French person"
+mjomba:jomba I-II-Suffix ; ! "Uncle"
+mpishi:pishi I-II-Suffix ; ! "Cook"
+mzee:zee I-II-Suffix ; ! "Elder"
+mzungu:zungu I-II-Suffix ; ! "White man"
+mjerumani:jerumani I-II-Suffix ; ! "German"
+mnyama:nyama I-II-Suffix ; ! "Animal"
+
+! prefix changes because of vowel
+!mwanamume:naume I-II-Suffix ; ! "Man"
+!mwanamke:nawake I-II-Suffix ; ! "Woman"
+!mwalimu:limu I-II-Suffix ; ! "Teacher"
+!mwanafunzi:nafunzi I-II-Suffix ; ! "Student"
+!mwafrika:afrika I-II-Suffix ; ! "African"
+
+LEXICON I-Irr-Stems
+baba:baba I-Irr-Suffix ; ! "Father"
+mama:mama I-Irr-Suffix ; ! "Mother"
+dada:dada I-Irr-Suffix ; ! "Sister"
+kaka:kaka I-Irr-Suffix ; ! "Brother"
+nyanya:nyanya I-Irr-Suffix ; ! "Grandmother"
+rafiki:rafiki I-Irr-Suffix ; ! "Friend"
+shangazi:shangazi I-Irr-Suffix ; ! "Aunt" 
+kipofu:kipofu I-Irr-Suffix ; ! "Blind(person)"
+kiziwi:kiziwi I-Irr-Suffix ; ! "Deaf(person)"
+mbwa:mbwa I-Irr-Suffix ; ! "Dog"
+paka:paka I-Irr-Suffix ; ! "Cat"
+
+LEXICON III-IV-Stems
+mti:ti III-IV-Suffix ; ! "Tree"
+mnazi:nazi III-IV-Suffix ; ! "Coconut tree"
+mtofaa:tofaa III-IV-Suffix ; ! "Apple tree"
+mgomba:gomba III-IV-Suffix ; ! "Banana tree"
+mdomo:domo III-IV-Suffix ; ! "Mouth"
+mkono:kono III-IV-Suffix ; ! "Hand"
+moyo:oyo III-IV-Suffix ; ! "Heart"
+mchezo:chezo III-IV-Suffix ; ! "Game"
+mwaka:aka III-IV-Suffix ; ! "Year"
+ndege:ndege III-IV-Suffix ; ! "Bird"
+
+LEXICON V-VI-Stems
+blanketi:blanketi V-VI-Suffix ; ! "Blanket"
+gari:gari V-VI-Suffix ; ! "Car"
+dirisha:dirisha V-VI-Suffix ; ! "Window"
+gazeti:gazeti V-VI-Suffix ; ! "Newspaper"
+neno:neno V-VI-Suffix ; ! "Word"
+shamba:shamba V-VI-Suffix ; ! "Farm"
+jina:jina V-VI-Suffix ; ! "Name"
+juma:juma V-VI-Suffix ; ! "Week"
+swali:swali V-VI-Suffix ; ! "Question"
+jibu:jibu V-VI-Suffix ; ! "Answer"
+
+
+LEXICON VII-VIII-Stems
+kiti:ti VII-VIII-Suffix ; ! "Chair"
+kisu:su VII-VIII-Suffix ; ! "Knife"
+kilima:lima VII-VIII-Suffix ; ! "Hill"
+kichwa:chwa VII-VIII-Suffix ; ! "Head"
+kidole:dole VII-VIII-Suffix ; ! "Finger"
+
+! nouns that with [ch-vy]
+!chakula:akula VII-VIII-Suffix ; ! "Food"
+!chuo:uo VII-VIII-Suffix ; ! "School"
+!choo:oo VII-VIII-Suffix ; ! "Restroom"
+!chumba:umba VII-VIII-Suffix ; ! "Room"
+!chama:ama VII-VIII-Suffix ; ! "Party"
+!chombo:ombo VII-VIII-Suffix ; ! "Container"
+!cheo:eo VII-VIII-Suffix ; ! "Rank"
+
+
+LEXICON IX-X-Stems
+chupa:chupa IX-X-Suffix ; ! "Bottle"
+chai:chai IX-X-Suffix ; ! "Tea"
+chumvi:chumvi IX-X-Suffix ; ! "Salt"
+ajali:ajali IX-X-Suffix ; ! "Accident"
+ardhi:ardhi IX-X-Suffix ; ! "Earth/Ground"
+bahari:bahari IX-X-Suffix ; ! "Sea"
+barua:barua IX-X-Suffix ; ! "Letter"
+nyumba:nyumba IX-X-Suffix ; ! "House" 
+meza:meza IX-X-Suffix ; ! "Chair"
+
+LEXICON XI-Stems
+! create necessary subcategories
+!u-ny
+uso:nyuso XI-Suffix ; ! "Faces"
+uzi:nyuzi XI-Suffix ; ! "Thread"
+
+! u-mb
+ulimi:ndimi XI-Suffix ; ! "Tongue"
+udevu:ndevu XI-Suffix ; ! "Beard"
+
+!u-|
+unywele:nywele XI-Suffix ; ! "Hair strand"
+ufunguo:funguo XI-Suffix ; !  "Key"
+
+LEXICON XIV-Stems
+udongo:udongo XIV-Suffix ; ! "Soil/Ground"
+ugali:ugali XIV-Suffix ; ! "Corn paste"
+ulimwengu:ulimwengu XIV-Suffix ; ! "World"
+umeme:umeme XIV-Suffix ; ! "Electricity"
+umri:umri XIV-Suffix ; ! "Age"
+usingizi:usingizi XIV-Suffix ; ! "Sleep"
+
+!LEXICON XV-Stems
+
+!LEXICON XVI-Stems
+
+!LEXICON XVII-Stems
+
+!LEXICON XVIII-Stems
+
+
+! Pronouns
+
+LEXICON Pronouns
+mimi:mimi PRON-Mimi ; ! "I"
+sisi:sisi PRON-Sisi ; ! "We"
+wewe:wewe PRON-Wewe ; ! "You"
+nyinyi:nyiyi PRON-Nyi ; ! "You(pl)"
+ninyi:ninyi PRON-Nyi ; ! "You(pl)"
+yeye:yeye PRON-Yeye ; ! "He/She"
+wao:wao PRON-Wao ; ! "They"
+
+
+!! Verbs
+
+!LEXICON V-Stems
+!kusoma:som V-Suffix ; ! "to study"
+!kucheza:chez V-Suffix ; ! "to play"
+!kufunga:fung V-Suffix ; ! "to close"
+!kufungua:fungu V-Suffix ; ! "to open"
+!kuona:on V-Suffix ; ! "to see"
+!kusema:sem V-Suffix ; ! "to say, tell"
+
+
 
 
 
@@ -46,4 +388,3 @@ house:house RegNounInfl ; ! A noun
 ! https://github.com/hfst/
 ! http://www.cis.upenn.edu/~cis639/docs/lexc.html
 ! http://wiki.apertium.org/wiki/Hfst
-
