@@ -15,15 +15,20 @@ TARGETS_COMMON =			\
 	$(LANG1).autogen.bin		\
 	$(LANG1).autogen.att.gz		\
 	$(LANG1).autopgen.bin		\
-	$(LANG1).prob                   \
-	$(LANG1).rlx.bin
+	$(LANG1).rlx.bin 
 
 # This include defines goals for install-modes, .deps/.d, autobil.prefixes and .mode files:
 @ap_include@
 
 ###############################################################################
-## Swahili transducer
+## Lingala transducer
 ###############################################################################
+
+.deps/spellrelax.hfst: dev/spellrelax.twol .deps/.d
+	hfst-twolc $< -o $@
+
+.deps/$(LANG1).twoc.hfst: $(BASENAME).$(LANG1).twoc .deps/.d
+	hfst-twolc $< -o $@
 
 .deps/$(LANG1).twol.hfst: $(BASENAME).$(LANG1).twol .deps/.d
 	hfst-twolc $< -o $@
@@ -35,25 +40,31 @@ TARGETS_COMMON =			\
 	cat $< | grep -v 'Dir/RL' > $@
 
 .deps/$(LANG1).RL.lexc.hfst: .deps/$(LANG1).RL.lexc
-	hfst-lexc $< -o $@ -v --Werror
+	hfst-lexc --Werror $< -o $@ -v
 
 .deps/$(LANG1).LR.lexc.hfst: .deps/$(LANG1).LR.lexc
-	hfst-lexc $< -o $@ -v --Werror
+	hfst-lexc --Werror $< -o $@ -v
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexc.hfst .deps/$(LANG1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).RL.lexc-twoc.hfst: .deps/$(LANG1).RL.lexc.hfst .deps/$(LANG1).twoc.hfst
+	hfst-invert .deps/$(LANG1).RL.lexc.hfst | hfst-compose-intersect -1 - -2 .deps/$(LANG1).twoc.hfst | hfst-invert -o $@
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexc.hfst .deps/$(LANG1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).LR.lexc-twoc.hfst: .deps/$(LANG1).LR.lexc.hfst .deps/$(LANG1).twoc.hfst
+	hfst-invert .deps/$(LANG1).LR.lexc.hfst | hfst-compose-intersect -1 - -2 .deps/$(LANG1).twoc.hfst | hfst-invert -o $@
+
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexc-twoc.hfst .deps/$(LANG1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexc-twoc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexc-twoc.hfst .deps/$(LANG1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexc-twoc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@
 
-$(LANG1).automorf.hfst: .deps/$(LANG1).LR.hfst
-	hfst-invert $< | hfst-fst2fst -O -o $@
+$(LANG1).automorf.hfst: .deps/$(LANG1).LR.hfst .deps/spellrelax.hfst
+	hfst-compose-intersect -1 $< -2 .deps/spellrelax.hfst | hfst-invert | hfst-minimise | hfst-fst2fst -O -o $@
 
-$(LANG1).autogen.att.gz: $(LANG1).autogen.hfst
-	hfst-fst2txt $< | gzip -9 -c -n > $@
+$(LANG1).autogen.att.gz: .deps/$(LANG1).RL.hfst
+	hfst-minimise $< | hfst-fst2txt | gzip -9 -c -n > $@
 
 $(LANG1).automorf.att.gz: $(LANG1).automorf.hfst
 	hfst-fst2txt $< | gzip -9 -c -n > $@
@@ -121,13 +132,6 @@ $(LANG1).zhfst: .deps/acceptor.default.hfst .deps/errmodel.default.hfst
 
 
 ###############################################################################
-## Unigram tagger
-###############################################################################
-
-$(LANG1).prob: corpus/$(LANG1).tagged
-	apertium-tagger -s 0 -u 2 $@ $<
-
-###############################################################################
 ## Distribution
 ###############################################################################
 
@@ -142,11 +146,11 @@ EXTRA_DIST=$(BASENAME).$(LANG1).lexc		\
 ## Installation stuff
 ###############################################################################
 #
-#   apertium_swa_dir: This is where the compiled binaries go
-#   apertium_swa_srcdir: This is where the source files go
+#   apertium_lin_dir: This is where the compiled binaries go
+#   apertium_lin_srcdir: This is where the source files go
 
-apertium_swadir=$(prefix)/share/apertium/$(BASENAME)/
-apertium_swa_srcdir=$(prefix)/share/apertium/$(BASENAME)/
+apertium_lindir=$(prefix)/share/apertium/$(BASENAME)/
+apertium_lin_srcdir=$(prefix)/share/apertium/$(BASENAME)/
 
 EXTRA_TARGETS=
 
@@ -154,7 +158,7 @@ if HAVE_HFSTOSPELL
 EXTRA_TARGETS += $(LANG1).zhfst
 endif # HAVE_HFSTOSPELL
 
-apertium_swa_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS)
+apertium_lin_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS) $(LANG1).prob
 
 pkgconfigdir = $(prefix)/share/pkgconfig
 pkgconfig_DATA = $(BASENAME).pc
@@ -162,11 +166,11 @@ pkgconfig_DATA = $(BASENAME).pc
 noinst_DATA=modes/$(LANG1)-morph.mode
 
 install-data-local: install-modes
-	test -d $(DESTDIR)$(apertium_swa_srcdir) || mkdir -p $(DESTDIR)$(apertium_swa_srcdir)
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).lexc $(DESTDIR)$(apertium_swa_srcdir)
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).twol $(DESTDIR)$(apertium_swa_srcdir)
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).rlx $(DESTDIR)$(apertium_swa_srcdir)
-	$(INSTALL_DATA) $(BASENAME).post-$(LANG1).dix $(DESTDIR)$(apertium_swa_srcdir)
+	test -d $(DESTDIR)$(apertium_lin_srcdir) || mkdir -p $(DESTDIR)$(apertium_lin_srcdir)
+	$(INSTALL_DATA) $(BASENAME).$(LANG1).lexc $(DESTDIR)$(apertium_lin_srcdir)
+	$(INSTALL_DATA) $(BASENAME).$(LANG1).twol $(DESTDIR)$(apertium_lin_srcdir)
+	$(INSTALL_DATA) $(BASENAME).$(LANG1).rlx $(DESTDIR)$(apertium_lin_srcdir)
+	$(INSTALL_DATA) $(BASENAME).post-$(LANG1).dix $(DESTDIR)$(apertium_lin_srcdir)
 
 ###############################################################################
 ## Cleanup
@@ -181,7 +185,8 @@ clean-local:
 ###############################################################################
 
 test: all
-	echo "TODO test sentence" | apertium -d . swa-morph | tee .test-mt
+	echo "TODO test sentence" | apertium -d . lin-morph | tee .test-mt
 	@echo "TODO test analysis results" > .test-ref
 	@diff .test-ref .test-mt
 	@rm .test-ref .test-mt
+
