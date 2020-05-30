@@ -1,0 +1,191 @@
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!                                                                         !!!
+#!!                   S W A H I L I   T R A N S D U C E R                   !!!
+#!!                                                                         !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+PATTERNS
+NounPrefix
+
+#=============================================================================!
+#                         Noun Morphotactics                                  !
+#=============================================================================!
+
+PATTERN NounPrefix
+:I-II I-II-Stems I-II:
+:I-Irr I-Irr-Stems I-Irr:
+:III-IV III-IV-Stems III-IV:
+:V-VI V-VI-Stems V-VI:
+:VII-VIII VII-VIII-Stems VII-VIII:
+:IX-X IX-X-Stems IX-X:
+:XI XI-Stems XI:
+:XIV  XIV-Stems XIV:
+#XV
+#XVI 
+#XVII 
+#XVIII 
+
+LEXICON I-II
+<n><cl1><sg>:m>
+<n><cl1><pl>:wa>
+
+LEXICON I-Irr
+<n><cl1><sp>:
+
+LEXICON III-IV
+<n><cl3><sg>:m>
+<n><cl3><pl>:mi>
+
+LEXICON V-VI
+#<n><cl5><sg>:
+<n><cl5><sg>:
+<n><cl5><pl>:ma>
+
+LEXICON VII-VIII
+<n><cl7><sg>:ki>
+<n><cl7><pl>:vi>
+
+LEXICON IX-X
+# TODO: prefix before vowel(ny)
+<n><cl9><sp>:
+
+LEXICON XI
+<n><cl11><sg>:
+
+LEXICON XIV
+<n><cl14><sg>:
+
+#LEXICON XIV
+#<n><cl15><sg>:
+
+#LEXICON XIV
+#<n><cl16><sg>:
+
+#LEXICON XIV
+#<n><cl17><sg>:
+
+#LEXICON XIV
+#<n><cl18><sg>:
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!                          L E X I C O N                                  !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#=============================================================================!
+#                               Nouns                                         !
+#=============================================================================!
+
+
+LEXICON I-II-Stems
+mtu:tu # "Person"
+mtoto:toto  # "Child"
+mkulima:kulima  # "Farmer"
+mke:ke  # "Wife"
+msichana:sichana  # "Girl"
+mvulana:vulana  # "Boy"
+mgeni:geni  # "Visitor"
+mfaransa:faransa  # "French person"
+mjomba:jomba  # "Uncle"
+mpishi:pishi  # "Cook"
+mzee:zee  # "Elder"
+mzungu:zungu  # "White man"
+mjerumani:jerumani  # "German"
+mnyama:nyama  # "Animal"
+
+LEXICON I-Irr-Stems
+baba:baba # "Father"
+mama:mama # "Mother"
+dada:dada # "Sister"
+kaka:kaka # "Brother"
+nyanya:nyanya # "Grandmother"
+rafiki:rafiki # "Friend"
+shangazi:shangazi # "Aunt" 
+kipofu:kipofu # "Blind(person)"
+kiziwi:kiziwi # "Deaf(person)"
+mbwa:mbwa # "Dog"
+paka:paka # "Cat"
+
+LEXICON III-IV-Stems
+mti:ti # "Tree"
+mnazi:nazi # "Coconut tree"
+mtofaa:tofaa # "Apple tree"
+mgomba:gomba # "Banana tree"
+mdomo:domo # "Mouth"
+mkono:kono # "Hand"
+moyo:oyo # "Heart"
+mchezo:chezo # "Game"
+mwaka:aka # "Year"
+ndege:ndege # "Bird"
+
+LEXICON V-VI-Stems
+blanketi:blanketi # "Blanket"
+gari:gari # "Car"
+dirisha:dirisha # "Window"
+gazeti:gazeti # "Newspaper"
+neno:neno # "Word"
+shamba:shamba # "Farm"
+jina:jina # "Name"
+juma:juma # "Week"
+swali:swali # "Question"
+jibu:jibu # "Answer"
+
+LEXICON VII-VIII-Stems
+kiti:ti # "Chair"
+kisu:su # "Knife"
+kilima:lima # "Hill"
+kichwa:chwa # "Head"
+kidole:dole # "Finger"
+
+# nouns that with [ch-vy]
+#chakula:akula # "Food"
+#chuo:uo # "School"
+#choo:oo # "Restroom"
+#chumba:umba # "Room"
+#chama:ama # "Party"
+#chombo:ombo # "Container"
+#cheo:eo # "Rank"
+
+LEXICON IX-X-Stems
+chupa:chupa # "Bottle"
+chai:chai # "Tea"
+chumvi:chumvi # "Salt"
+ajali:ajali # "Accident"
+ardhi:ardhi # "Earth/Ground"
+bahari:bahari # "Sea"
+barua:barua # "Letter"
+nyumba:nyumba # "House" 
+meza:meza # "Table"
+
+LEXICON XI-Stems
+# TODO: create necessary subcategories
+#u-ny
+uso:nyuso # "Faces"
+uzi:nyuzi # "Thread"
+
+# u-mb
+ulimi:ndimi # "Tongue"
+udevu:ndevu # "Beard"
+
+#u-|
+unywele:nywele # "Hair strand"
+ufunguo:funguo #  "Key"
+
+LEXICON XIV-Stems
+udongo:udongo # "Soil/Ground"
+ugali:ugali # "Corn paste"
+ulimwengu:ulimwengu # "World"
+umeme:umeme # "Electricity"
+umri:umri # "Age"
+usingizi:usingizi # "Sleep"
+
+#LEXICON XV-Stems
+
+#LEXICON XVI-Stems
+
+#LEXICON XVII-Stems
+
+#LEXICON XVIII-Stems
+
+
+
+

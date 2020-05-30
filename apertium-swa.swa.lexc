@@ -20,6 +20,9 @@ Multichar_Symbols
 ! Verb tense and mood morphology
 %<pres%>    ! Present tense
 %<past%>    ! Unrelated distant past
+%<per%>     ! Present Perfect
+%<fut%>     ! Future
+%<hab%>     ! Habitual
 
 ! Pronoun morpholgy
 %<pers%>   ! Personal pronoun
@@ -43,6 +46,34 @@ Multichar_Symbols
 %[%+def%]  ! Definite (used w. plural)
 %[%+inst%] ! Instantiation of abstract concept
 
+%[%+p1%]   ! First person
+%[%+p2%]   ! Second person
+%[%+p3%]   ! Third person
+%[%+aa%]   ! Animate (used w. verb)
+%[%+nn%]   ! Inanimate (used w. verb)
+%[%+fut%]  ! Future tense
+%[%+pres%] ! Present tense
+%[%+per%]  ! Perfect tense
+%[%+past%] ! Past tense
+%[%+hab%]  ! Habitual tense
+%[%+ref%]  ! Reflexive
+%[%+inf%]  ! Infinitive
+%[%+imp%]  ! Imperative
+
+%[%-p1%]   ! First person
+%[%-p2%]   ! Second person
+%[%-p3%]   ! Third person
+%[%-aa%]   ! Animate (used w. verb)
+%[%-nn%]   ! Inanimate (used w. verb)
+%[%-fut%]  ! Future tense
+%[%-pres%] ! Present tense
+%[%-per%]  ! Perfect tense
+%[%-past%] ! Past tense
+%[%-hab%]  ! Habitual tense
+%[%-ref%]  ! Reflexive
+%[%-inf%]  ! Infinitive
+%[%-imp%]  ! Imperative
+
 %[%-sg%]   ! Singular (noun prefix matching)
 %[%-pl%]   ! Plural (noun prefix matching)
 %[%-abs%]  ! Abstract (derived from non-abstract)
@@ -63,7 +94,7 @@ Multichar_Symbols
 LEXICON Root
 NounPrefix ;
 Pronouns;
-!VerbPersonNum-Prefix;
+VerbPersonNum-Prefix;
 
 LEXICON COMMON-Suffix
 # ;
@@ -201,31 +232,63 @@ LEXICON PRON-Wao
 !                         Verb Morphotactics                                  !
 !=============================================================================!
 
-!LEXICON VerbPersonNum-Prefix
-!%[%-p1%]%[%-sg%]:ni%> V-TAM-REL-OBJ-Stem ;
-!%[%-p2%]%[%-sg%]:u%> V-FutRefOrStem ;
-!%[%-p3%]%[%-sg%]:a%> V-FutRefOrStem ;
-!%[%-p1%]%[%-pl%]:tu%> V-FutRefOrStem ;
-!%[%-p2%]%[%-pl%]:m%> V-FutRefOrStem ;
-!%[%-p3%]%[%-pl%]:wa%> V-FutRefOrStem ;
-!%<p1%>%<sg%>:ni%> V-TAM-REL-OBJ-Stem ;
+LEXICON VerbPersonNum-Prefix
+%[%-p1%]%[%-sg%]:ni%> V-TAM-REL-OBJ-Stem ;
+%[%-p2%]%[%-sg%]:u%> V-TAM-REL-OBJ-Stem ;
+%[%-p3%]%[%-sg%]:a%> V-TAM-REL-OBJ-Stem ;
+%[%-p1%]%[%-pl%]:tu%> V-TAM-REL-OBJ-Stem ;
+%[%-p2%]%[%-pl%]:m%> V-TAM-REL-OBJ-Stem ;
+%[%-p3%]%[%-pl%]:wa%> V-TAM-REL-OBJ-Stem ;
+%<p1%>%<sg%>:ni%> V-TAM-REL-OBJ-Stem ;
 
 
-!LEXICON V-TAM-REL-OBJ-Stem
-!V-Stems;
-!V-TAM-Prefix;
+LEXICON V-TAM-REL-OBJ-Stem
+V-Stems;
+V-TAM-Prefix;
 
-!LEXICON V-TAM-Prefix
-!%<vblex%>%<pres%>:na%> V-Stems ;
-!%<vblex%>%<pres%>:me%> V-Stems ;
-!%<vblex%>%<pres%>:li%> V-Stems ;
-!%<vblex%>%<pres%>:ta%> V-Stems ;
-!%<vblex%>%<pres%>:hu%> V-Stems ;
+LEXICON V-TAM-Prefix
+%[%-pres%]:na%> V-Stems ;
+%[%-fut%]:ta%> V-Stems ;
+%[%-per%]:me%> V-Stems ;
+%[%-past%]:li%> V-Stems ;
+%[%-hab%]:hu%> V-Stems ;
 
+LEXICON V-Suffix
+!TODO: create new sections(when adding subjunctive)
+%[%+pres%]%[%+p1%]%[%+sg%]%<pres%>%<p1%>%<sg%>:a COMMON-Suffix ;
+%[%+pres%]%[%+p2%]%[%+sg%]%<pres%>%<p2%>%<sg%>:a COMMON-Suffix ;
+%[%+pres%]%[%+p3%]%[%+sg%]%<pres%>%<p3%>%<sg%>:a COMMON-Suffix ;
+%[%+pres%]%[%+p1%]%[%+pl%]%<pres%>%<p1%>%<pl%>:a COMMON-Suffix ;
+%[%+pres%]%[%+p2%]%[%+pl%]%<pres%>%<p2%>%<pl%>:a COMMON-Suffix ;
+%[%+pres%]%[%+p3%]%[%+pl%]%<pres%>%<p3%>%<pl%>:a COMMON-Suffix ;
 
-!LEXICON V-Suffix
-!%[%+p1%]%[%+sg%]%<p1%>%<sg%>%<aa%>:a COMMON-Suffix ;
+%[%+fut%]%[%+p1%]%[%+sg%]%<fut%>%<p1%>%<sg%>:a COMMON-Suffix ;
+%[%+fut%]%[%+p2%]%[%+sg%]%<fut%>%<p2%>%<sg%>:a COMMON-Suffix ;
+%[%+fut%]%[%+p3%]%[%+sg%]%<fut%>%<p3%>%<sg%>:a COMMON-Suffix ;
+%[%+fut%]%[%+p1%]%[%+pl%]%<fut%>%<p1%>%<pl%>:a COMMON-Suffix ;
+%[%+fut%]%[%+p2%]%[%+pl%]%<fut%>%<p2%>%<pl%>:a COMMON-Suffix ;
+%[%+fut%]%[%+p3%]%[%+pl%]%<fut%>%<p3%>%<pl%>:a COMMON-Suffix ;
 
+%[%+per%]%[%+p1%]%[%+sg%]%<per%>%<p1%>%<sg%>:a COMMON-Suffix ;
+%[%+per%]%[%+p2%]%[%+sg%]%<per%>%<p2%>%<sg%>:a COMMON-Suffix ;
+%[%+per%]%[%+p3%]%[%+sg%]%<per%>%<p3%>%<sg%>:a COMMON-Suffix ;
+%[%+per%]%[%+p1%]%[%+pl%]%<per%>%<p1%>%<pl%>:a COMMON-Suffix ;
+%[%+per%]%[%+p2%]%[%+pl%]%<per%>%<p2%>%<pl%>:a COMMON-Suffix ;
+%[%+per%]%[%+p3%]%[%+pl%]%<per%>%<p3%>%<pl%>:a COMMON-Suffix ;
+
+%[%+past%]%[%+p1%]%[%+sg%]%<past%>%<p1%>%<sg%>:a COMMON-Suffix ;
+%[%+past%]%[%+p2%]%[%+sg%]%<past%>%<p2%>%<sg%>:a COMMON-Suffix ;
+%[%+past%]%[%+p3%]%[%+sg%]%<past%>%<p3%>%<sg%>:a COMMON-Suffix ;
+%[%+past%]%[%+p1%]%[%+pl%]%<past%>%<p1%>%<pl%>:a COMMON-Suffix ;
+%[%+past%]%[%+p2%]%[%+pl%]%<past%>%<p2%>%<pl%>:a COMMON-Suffix ;
+%[%+past%]%[%+p3%]%[%+pl%]%<past%>%<p3%>%<pl%>:a COMMON-Suffix ;
+
+%[%+hab%]%[%+p1%]%[%+sg%]%<hab%>%<p1%>%<sg%>:a COMMON-Suffix ;
+%[%+hab%]%[%+p2%]%[%+sg%]%<hab%>%<p2%>%<sg%>:a COMMON-Suffix ;
+%[%+hab%]%[%+p3%]%[%+sg%]%<hab%>%<p3%>%<sg%>:a COMMON-Suffix ;
+%[%+hab%]%[%+p1%]%[%+pl%]%<hab%>%<p1%>%<pl%>:a COMMON-Suffix ;
+%[%+hab%]%[%+p2%]%[%+pl%]%<hab%>%<p2%>%<pl%>:a COMMON-Suffix ;
+%[%+hab%]%[%+p3%]%[%+pl%]%<hab%>%<p3%>%<pl%>:a COMMON-Suffix ;
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -368,13 +431,13 @@ wao:wao PRON-Wao ; ! "They"
 
 !! Verbs
 
-!LEXICON V-Stems
-!kusoma:som V-Suffix ; ! "to study"
-!kucheza:chez V-Suffix ; ! "to play"
-!kufunga:fung V-Suffix ; ! "to close"
-!kufungua:fungu V-Suffix ; ! "to open"
-!kuona:on V-Suffix ; ! "to see"
-!kusema:sem V-Suffix ; ! "to say, tell"
+LEXICON V-Stems
+kusoma:som V-Suffix ; ! "to study"
+kucheza:chez V-Suffix ; ! "to play"
+kufunga:fung V-Suffix ; ! "to close"
+kufungua:fungu V-Suffix ; ! "to open"
+kuona:on V-Suffix ; ! "to see"
+kusema:sem V-Suffix ; ! "to say, tell"
 
 
 
