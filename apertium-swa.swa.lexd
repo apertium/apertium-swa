@@ -6,6 +6,7 @@
 
 PATTERNS
 NounPrefix
+Pronouns
 
 #=============================================================================!
 #                         Noun Morphotactics                                  !
@@ -66,6 +67,36 @@ LEXICON XIV
 
 #LEXICON XIV
 #<n><cl18><sg>:
+
+#!=============================================================================!
+#!                         Pronoun Morphotactics                               !
+#!=============================================================================!
+
+PATTERN Pronouns
+Prn-Mimi Prn-Mimi-Tag
+Prn-Sisi Prn-Sisi-Tag
+Prn-Wewe Prn-Wewe-Tag
+Prn-Nyinyi Prn-Nyinyi-Tag
+Prn-Yeye Prn-Yeye-Tag
+Prn-Wao Prn-Wao-Tag
+
+LEXICON Prn-Mimi-Tag
+<prn><pers><p1><sg>:
+
+LEXICON Prn-Sisi-Tag
+<prn><pers><p1><pl>:
+
+LEXICON Prn-Wewe-Tag
+<prn><pers><p2><sg>:
+
+LEXICON Prn-Nyinyi-Tag
+<prn><pers><p2><pl>:
+
+LEXICON Prn-Yeye-Tag
+<prn><pers><p3><sg>:
+
+LEXICON Prn-Wao-Tag
+<prn><pers><p3><pl>:
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!                          L E X I C O N                                  !!!
@@ -185,6 +216,30 @@ usingizi:usingizi # "Sleep"
 #LEXICON XVII-Stems
 
 #LEXICON XVIII-Stems
+
+
+#=============================================================================!
+#                               Pronouns                                      !
+#=============================================================================!
+
+LEXICON Prn-Mimi
+mimi
+
+LEXICON Prn-Sisi
+sisi
+
+LEXICON Prn-Wewe
+wewe
+
+LEXICON Prn-Nyinyi
+nyinyi
+
+LEXICON Prn-Yeye
+yeye
+
+LEXICON Prn-Wao 
+wao
+
 
 
 
