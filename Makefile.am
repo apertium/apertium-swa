@@ -24,8 +24,8 @@ TARGETS_COMMON =			\
 ## Lingala transducer
 ###############################################################################
 
-.deps/spellrelax.hfst: dev/spellrelax.twol .deps/.d
-	hfst-twolc $< -o $@
+.deps/spellrelax.hfst: $(BASENAME).$(LANG1).spellrelax .deps/.d
+	hfst-regexp2fst -S -o $@ < $<
 
 .deps/$(LANG1).RL.lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Dir/LR' > $@
