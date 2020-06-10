@@ -4,23 +4,19 @@
 #!!                                                                         !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-PATTERNS
-NounPrefix
-Pronouns
-
 #=============================================================================!
 #                         Noun Morphotactics                                  !
 #=============================================================================!
 
-PATTERN NounPrefix
-:I-II I-II-Stems I-II:
-:I-Irr I-Irr-Stems I-Irr:
-:III-IV III-IV-Stems III-IV:
-:V-VI V-VI-Stems V-VI:
-:VII-VIII VII-VIII-Stems VII-VIII:
-:IX-X IX-X-Stems IX-X:
-:XI XI-Stems XI:
-:XIV  XIV-Stems XIV:
+PATTERNS
+#:I-II I-II-Stems I-II:
+#:I-Irr I-Irr-Stems I-Irr:
+#:III-IV III-IV-Stems III-IV:
+#:V-VI V-VI-Stems V-VI:
+#:VII-VIII VII-VIII-Stems VII-VIII:
+#:IX-X IX-X-Stems IX-X:
+#:XI XI-Stems XI:
+#:XIV  XIV-Stems XIV:
 #XV
 #XVI 
 #XVII 
@@ -98,9 +94,95 @@ LEXICON Prn-Yeye-Tag
 LEXICON Prn-Wao-Tag
 <prn><pers><p3><pl>:
 
+#=============================================================================!
+#                         Verb Morphotactics                                  !
+#=============================================================================!
+
+PATTERNS
+# subject concord always present
+# except in infitive, habitual, imperative
+
+:VInfImpHab(1) V-Stems V-Suffix  VInfImpHab(2)
+
+:VerbPersNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VerbPersNum(1): V-Ext
+:VerbPersNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VerbPersNum(2): V-Ext
+
+:VClassNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VClassNum(1): V-Ext
+:VClassNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VClassNum(2): V-Ext
+
+PATTERN VerbSubj
+
+LEXICON VerbPersNum(2)
+<p1><sg>:ni>  <p1><sg><neg>:si>
+<p2><sg>:u>   <p2><pl><neg>:hu> 
+<p3><sg>:a>   <p1><sg><neg>:hatu>
+<p1><pl>:tu>  <p2><pl><neg>:ham>
+<p2><pl>:m>   <p3><sg><neg>:ha>
+<p3><pl>:wa>  <p3><pl><neg>:hawa>
+
+LEXICON VClassNum(2)
+<cl1><sg>:a>    <cl1><sg>:ha>
+<cl1><pl>:wa>   <cl1><pl>:hawa>
+<cl3><sg>:u>    <cl3><sg>:hau>
+<cl3><pl>:i>    <cl3><pl>:hai>
+<cl5><sg>:li>   <cl5><sg>:hali>
+<cl5><pl>:ya>   <cl5><pl>:haya>
+<cl7><sg>:ki>   <cl7><sg>:haki>
+<cl7><pl>:vi>   <cl7><pl>:havi>
+<cl9><sg>:i>    <cl9><sg>:hai>
+<cl9><pl>:zi>   <cl9><pl>:hazi>
+<cl11><sg>:u>   <cl11><sg>:hau>
+<cl14><sg>:u>   <cl14><sg>:hau>
+
+#<cl15><sg>:ku> <cl15><sg>:haku>
+#<cl16><sg>:pa> <cl16><sg>:hapa>
+#<cl17><sg>:ku> <cl17><sg>:haku>
+#<cl18><sg>:m>  <cl18><sg>:ham>
+
+
+LEXICON V-TAM(2)
+<prs>:na>   <prs><neg>:>
+<past>:li>  <past><neg>:ku>
+<fut>:ta>   <fut><neg>:ta> # and to
+<perf>:me>  <perf><neg>:ja>
+
+#<prsi>:a> # present indefinite
+#<sit>:ki> # situational
+#<cons>:ka> # consecutive
+#<irrpr>:nge> <irrpr><neg>:nge> # irrealis present/neg 2
+#<irrprn>:singe> # irrealis present neg 1
+#<irrps>:ngali <irrps><neg>:ngali> # irrealis past
+#<irrps>:singali # irrealis past neg 1
+
+LEXICON V-Obj
+:mw # should be m(w)
+:wa
+:ku
+:wa
+:ni
+:tu
+
+LEXICON V-Suffix
+<vblex>:>
+
+LEXICON V-Ext
+:a
+#:e
+
+LEXICON VInfImpHab(2)
+: <imp><sg>:a
+: <imp><pl>:eni
+
+:ku> <inf><cl15>:a
+:kuto <inf><neg><cl15>:a
+:kutoku <inf><neg><cl15>:a
+
+:hu <hab>:a
+
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!                          L E X I C O N                                  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 #=============================================================================!
 #                               Nouns                                         !
@@ -240,7 +322,19 @@ yeye
 LEXICON Prn-Wao 
 wao
 
+#=============================================================================!
+#                               Verb                                          !
+#=============================================================================!
 
+
+LEXICON V-Stems
+kuangalia:angali # "to look"
+#kusoma:som # "to study"
+#kucheza:chez # "to play"
+#kufunga:fung # "to close"
+#kufungua:fungu # "to open"
+#kuona:on # "to see"
+#kusema:sem # "to say, tell"
 
 
 
