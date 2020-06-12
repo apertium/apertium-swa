@@ -102,13 +102,19 @@ PATTERNS
 # subject concord always present
 # except in infitive, habitual, imperative
 
-:VInfImpHab(1) V-Stems V-Suffix  VInfImpHab(2)
+#:VInfImpHab(1) V-Stems V-Suffix  VInfImpHab(2)
 
-:VerbPersNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VerbPersNum(1): V-Ext
-:VerbPersNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VerbPersNum(2): V-Ext
+#:VerbPersNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VerbPersNum(1): V-Ext
+#:VerbPersNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VerbPersNum(2): V-Ext
 
-:VClassNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VClassNum(1): V-Ext
-:VClassNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VClassNum(2): V-Ext
+#:VClassNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VClassNum(1): V-Ext
+#:VClassNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VClassNum(2): V-Ext
+
+#:VClassNum(1) V-Stems V-Suffix [<subj>:>] VClassNum(1): [:e]
+#:VerbPersNum(1) V-Stems V-Suffix [<subj>:>] VerbPersNum(1): [:e]
+
+#:VerbPersNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VerbPersNum(1): [:e]
+#:VClassNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VClassNum(1): [:e]
 
 PATTERN VerbSubj
 
@@ -147,7 +153,7 @@ LEXICON V-TAM(2)
 <perf>:me>  <perf><neg>:ja>
 
 #<prsi>:a> # present indefinite
-#<sit>:ki> # situational
+#<sit>:ki> # situational,conditional
 #<cons>:ka> # consecutive
 #<irrpr>:nge> <irrpr><neg>:nge> # irrealis present/neg 2
 #<irrprn>:singe> # irrealis present neg 1
@@ -161,13 +167,13 @@ LEXICON V-Obj
 :wa
 :ni
 :tu
+:
 
 LEXICON V-Suffix
 <vblex>:>
 
 LEXICON V-Ext
 :a
-#:e
 
 LEXICON VInfImpHab(2)
 : <imp><sg>:a
@@ -178,6 +184,98 @@ LEXICON VInfImpHab(2)
 :kutoku <inf><neg><cl15>:a
 
 :hu <hab>:a
+
+LEXICON V-Rela
+<cl1>:ye>
+<cl2>:o>
+<cl3>:o>
+<cl4>:yo>
+<cl5>:lo>
+<cl6>yo>
+<cl7>:cho>
+<cl8>:vyo>
+<cl9>:yo>
+<cl10>:zo>
+<cl11>:o>
+<cl14>:o>
+<cl15>:ko>
+<cl16>:po>
+<cl17>:ko>
+<cl18:mo>
+
+#=============================================================================!
+#                     Determiners/Adjective Morphotactics                     !
+#=============================================================================!
+
+PATTERNS
+#Dem(1)|Demonst(2)|Dem(3) Dem(4)|Dem(5)
+#Dem(1) Dem(4)
+#Dem(2) Dem(4)
+#Dem(3) Dem(4)
+#Dem(1) Dem(5)
+#Dem(2) Dem(5)
+#Dem(3) Dem(5)
+
+LEXICON Dem(5)
+huyu  yule  huyo   <prn><dem><cl1><sg>: <adj><dem><cl1><sg>:
+hawa  wale 	hao    <prn><dem><cl1><pl>: <adj><dem><cl1><pl>:
+huu 	ule 	huo    <prn><dem><cl3><sg>: <adj><dem><cl3><sg>:
+hii 	ile 	hiyo   <prn><dem><cl3><pl>: <adj><dem><cl3><pl>:
+hili 	lile 	hilo	 <prn><dem><cl5><sg>: <adj><dem><cl5><sg>:
+haya 	yale 	hayo 	 <prn><dem><cl5><pl>: <adj><dem><cl5><pl>:
+hiki 	kile 	hicho  <prn><dem><cl7><sg>: <adj><dem><cl7><sg>:
+hivi 	vile 	hivyo  <prn><dem><cl7><pl>: <adj><dem><cl7><pl>:
+hii 	ile 	hiyo 	 <prn><dem><cl9><sg>: <adj><dem><cl9><sg>:
+hizi 	zile 	hizo 	 <prn><dem><cl9><pl>: <adj><dem><cl9><pl>:
+huu 	ule 	huo 	 <prn><dem><cl11><sg>: <adj><dem><cl11><sg>:
+huu 	ule 	huo  	 <prn><dem><cl14><sg>: <adj><dem><cl14><sg>:
+huku 	kule 	huko 	 <prn><dem><cl15><sg>: <adj><dem><cl15><sg>:
+hapa 	pale 	hapo   <prn><dem><cl16><sg>: <adj><dem><cl16><sg>: 
+huku 	kule 	huko 	 <prn><dem><cl17><sg>: <adj><dem><cl17><sg>:
+humu 	mle 	humo 	 <prn><dem><cl18><sg>: <adj><dem><cl18><sg>:
+
+LEXICON Det(3)
+wote 	wowote <det><cl1><pl>:
+wote 	wowote <det><cl3><sg>:	
+yote 	yoyote 	<det><cl3><pl>:
+lote 	lolote 	<det><cl5><sg>:
+yote 	yoyote 	<det><cl5><pl>:
+chote 	chochote 	<det><cl7><sg>:
+vyote 	vyovyote 	<det><cl7><pl>:
+yote 	yoyote 	<det><cl9><sg>:
+zote 	zozote 	<det><cl9><pl>:
+wote 	wowote 	<det><cl11><sg>:
+wote 	wowote 	<det><cl14><sg>:
+kote kokote <det><cl15><sg>:
+kwote kwokwote 	<det><cl15><sg>:
+pote 	popote 	<det><cl16><sg>:
+kote 	kokote <det><cl17><sg>:
+kwote kwokwote 	<det><cl17><sg>:
+mote momote <det><cl18><sg>:
+mwote mwomwote 	<det><cl18><sg>:
+
+PATTERNS
+Adj-Inv [<adj>]
+:Adj-Suff Adj-Var [<adj>:] Adj-Suff:
+
+LEXICON Adj-Suff
+<cl1><sg>:m
+<cl1><pl>:wa
+<cl3><sg>:m
+<cl3><pl>:mi
+<cl5><sg>:ji # only appears for 1 adj
+<cl5><pl>:ma
+<cl7><sg>:ki
+<cl7><pl>:vi
+<cl9><sg>:n # fix according to corpus
+<cl9><pl>:n # fix according to corpus
+<cl11><sg>:u
+<cl14><sg>:m
+<cl15><sg>:ku
+<cl16><sg>:pa
+<cl17><sg>:ku
+<cl18><sg>:mu
+
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!                          L E X I C O N                                  !!!
@@ -336,5 +434,39 @@ kuangalia:angali # "to look"
 #kuona:on # "to see"
 #kusema:sem # "to say, tell"
 
+#=============================================================================!
+#                               Adjectives                                    !
+#=============================================================================!
 
+LEXICON Adj-Var
+zuri:zrui  # good,nice,beautiful
+baya:baya # bad
+dogo:dogo  # small,little
+kubwa:kubwa  # big
+ingi:ingi  # a lot,many
+chache:chache  # a few,some
+refu:refu  # tall
+fupi:fupi  # short
+zee:zee  # old
+pya:pya  # new
+changa:changa  # young
+haba:haba  # few
+tele:tele  # plenty
 
+LEXICON Adj-Inv
+bora # suitable
+safi # clean
+nadhifu # clean/smart
+dhalili # weak/feable
+duni # insignificant # person/lowly
+rahisi # cheap
+ghali # expensive/exorbitant
+baridi # cold
+hodari # skilled
+tele # abundant
+kamili # exact
+haba # rare
+muhimu # important
+shujaa # brave
+stadi # steadfast
+bingwa # winner/victor
