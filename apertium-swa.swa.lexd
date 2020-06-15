@@ -8,15 +8,15 @@
 #                         Noun Morphotactics                                  !
 #=============================================================================!
 
-#PATTERNS
-#:I-II I-II-Stems I-II:
-#:I-Irr I-Irr-Stems I-Irr:
-#:III-IV III-IV-Stems III-IV:
-#:V-VI V-VI-Stems V-VI:
-#:VII-VIII VII-VIII-Stems VII-VIII:
-#:IX-X IX-X-Stems IX-X:
-#:XI XI-Stems XI:
-#:XIV  XIV-Stems XIV:
+PATTERNS
+:I-II I-II-Stems I-II:
+:I-Irr I-Irr-Stems I-Irr:
+:III-IV III-IV-Stems III-IV:
+:V-VI V-VI-Stems V-VI:
+:VII-VIII VII-VIII-Stems VII-VIII:
+:IX-X IX-X-Stems IX-X:
+:XI XI-Stems XI:
+:XIV  XIV-Stems XIV:
 #XV
 #XVI 
 #XVII 
@@ -68,62 +68,66 @@ LEXICON XIV
 #!                         Pronoun Morphotactics                               !
 #!=============================================================================!
 
-PATTERN Pronouns
-Prn-Mimi Prn-Mimi-Tag
-Prn-Sisi Prn-Sisi-Tag
-Prn-Wewe Prn-Wewe-Tag
-Prn-Nyinyi Prn-Nyinyi-Tag
-Prn-Yeye Prn-Yeye-Tag
-Prn-Wao Prn-Wao-Tag
+PATTERNS
+Prn-Mimi | Prn-Sisi | Prn-Wewe | Prn-Nyinyi | Prn-Yeye | Prn-Wao
 
-LEXICON Prn-Mimi-Tag
-<prn><pers><p1><sg>:
+LEXICON Prn-Mimi
+<prn><pers><p1><sg>:mimi
 
-LEXICON Prn-Sisi-Tag
-<prn><pers><p1><pl>:
+LEXICON Prn-Sisi
+<prn><pers><p1><pl>:sisi
 
-LEXICON Prn-Wewe-Tag
-<prn><pers><p2><sg>:
+LEXICON Prn-Wewe
+<prn><pers><p2><sg>:wewe
 
-LEXICON Prn-Nyinyi-Tag
-<prn><pers><p2><pl>:
+LEXICON Prn-Nyinyi
+<prn><pers><p2><pl>:nyinyi
 
-LEXICON Prn-Yeye-Tag
-<prn><pers><p3><sg>:
+LEXICON Prn-Yeye
+<prn><pers><p3><sg>:yeye
 
-LEXICON Prn-Wao-Tag
-<prn><pers><p3><pl>:
+LEXICON Prn-Wao
+<prn><pers><p3><pl>:wao
 
 #=============================================================================!
 #                         Verb Morphotactics                                  !
 #=============================================================================!
 
-#PATTERNS
+PATTERNS
 # subject concord always present
 # except in infitive, habitual, imperative
+#TODO: more subsections
 
-#:VInfImpHab(1) V-Stems V-Suffix  VInfImpHab(2)
+:VInfImpHab(1) V-Stems V-Suffix  VInfImpHab(2)
 
-#:VerbPersNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VerbPersNum(1): V-Ext
-#:VerbPersNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VerbPersNum(2): V-Ext
+:VerbPersNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VerbPersNum(1): V-Ext
+:VerbPersNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VerbPersNum(2): V-Ext
 
-#:VClassNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VClassNum(1): V-Ext
-#:VClassNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VClassNum(2): V-Ext
+:VClassNum(1) :V-TAM(1) V-Stems V-Suffix V-TAM(1): VClassNum(1): V-Ext
+:VClassNum(2) :V-TAM(2) V-Stems V-Suffix V-TAM(2): VClassNum(2): V-Ext
 
-#:VClassNum(1) V-Stems V-Suffix [<subj>:>] VClassNum(1): [:e]
-#:VerbPersNum(1) V-Stems V-Suffix [<subj>:>] VerbPersNum(1): [:e]
+:VClassNum(1) V-Stems V-Suffix [<subj>:>] VClassNum(1): [:e]
+:VerbPersNum(1) V-Stems V-Suffix [<subj>:>] VerbPersNum(1): [:e]
 
-#:VerbPersNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VerbPersNum(1): [:e]
-#:VClassNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VClassNum(1): [:e]
+:VerbPersNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VerbPersNum(1): [:e]
+:VClassNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VClassNum(1): [:e]
 
+#Kuwa/Irr
+V-Wa-Irr
+V-Wa-Irr2 V-Rel-Suff
+#:VerbPersNum V-Wa-Rel-Prs V-Rel-Suff :VerbPersNum
+:VerbPersNum(1) V-Wa-Loc-Prn(1) | V-Wa-Loc-Prn(2) | V-Wa-Loc-Prn(3) V-Wa-Loc-Prn(4): VerbPersNum(1):
+:VerbPersNum(2) V-Wa-Loc-Prn(1) | V-Wa-Loc-Prn(2) | V-Wa-Loc-Prn(3) V-Wa-Loc-Prn(4): VerbPersNum(2):
 
+:VClassNum(1) V-Wa-Loc-N(1) | V-Wa-Loc-N(2) | V-Wa-Loc-N(3) V-Wa-Loc-N(4): VClassNum(1):
+:VClassNum(2) V-Wa-Loc-N(1) | V-Wa-Loc-N(2) | V-Wa-Loc-N(3) V-Wa-Loc-N(4): VClassNum(2):
 
 LEXICON VerbPersNum(2)
 <p1><sg>:ni>  <p1><sg><neg>:si>
-<p2><sg>:u>   <p2><pl><neg>:hu> 
-<p3><sg>:a>   <p1><sg><neg>:hatu>
-<p1><pl>:tu>  <p2><pl><neg>:ham>
-<p2><pl>:m>   <p3><sg><neg>:ha>
+<p2><sg>:u>   <p2><sg><neg>:hu> 
+<p3><sg>:a>   <p3><sg><neg>:ha>
+<p1><pl>:tu>  <p1><pl><neg>:hatu>
+<p2><pl>:m>   <p3><pl><neg>:ham>
 <p3><pl>:wa>  <p3><pl><neg>:hawa>
 
 LEXICON VClassNum(2)
@@ -187,6 +191,7 @@ LEXICON VInfImpHab(2)
 
 LEXICON V-Rel-Suff
 #relative morpheme
+#only happens in prs,past,fut,t. neg, t.pos
 #TODO: remove class and genre reference
 <cl1><sg>:ye>
 <cl1><pl>:o>
@@ -207,61 +212,38 @@ LEXICON V-Rel-Suff
 
 LEXICON V-Wa-Irr
 #invariable copula
-#add tense
-kuwa<vbser>:ni
-kuwa<vbser>:si
+kuwa<vbser><prs>:ni
+kuwa<vbser><prs><neg>:si
 
 LEXICON V-Wa-Irr2
-#emphatic copula
+#focus/emphatic copula
 #emphasizing subj/noun
 #'it is (not) I'
-kuwa<vbser>:ndi>
+kuwa<vbser><foc>:ndi>
+kuwa<vbser><foc><neg>:si>
 
-LEXICON V-Wa-Loc-N(8)
-#locatives with n classes
-#TODO: add tag to differentiate between po-ko-mo
-#TODO: combine with VClassNum
-#TODO: add 'kuwa'
-yupo 	yuko 	yumo 	hayupo 	hayuko 	hayumo  <vbser><loc><cl1><sg>: <vbser><loc><cl1><sg>:
-wapo 	wako 	wamo 	hawapo 	hawako 	hawamo  <vbser><loc><cl1><pl>: <vbser><loc><cl1><pl><neg>:
-upo 	uko 	umo 	haupo 	hauko 	haumo  <vbser><loc><cl3><sg>:  <vbser><loc><cl3><sg><neg>:
-ipo 	iko 	imo 	haipo 	haiko 	haimo  <vbser><loc><cl3><pl>:  <vbser><loc><cl3><pl><neg>:
-lipo 	liko 	limo 	halipo 	haliko 	halimo  <vbser><loc><cl5><sg>: <vbser><loc><cl5><sg><neg>:
-yapo 	yako 	yamo 	hayapo 	hayako 	hayamo  <vbser><loc><cl5><pl>: <vbser><loc><cl5><pl><neg>:
-kipo 	kiko 	kimo 	hakipo 	hakiko 	hakimo  <vbser><loc><cl7><sg>: <vbser><loc><cl7><sg><neg>:
-vipo 	viko 	vimo 	havipo 	haviko 	havimo  <vbser><loc><cl7><pl>: <vbser><loc><cl7><pl><neg>:
-ipo 	iko 	imo 	haipo 	haiko 	haimo  <vbser><loc><cl9><sg>:  <vbser><loc><cl9><sg><neg>:
-zipo 	ziko 	zimo 	hazipo 	haziko 	hazimo  <vbser><loc><cl9><pl>: <vbser><loc><cl9><pl><neg>:
-upo 	uko 	umo 	haupo 	hauko 	haumo  <vbser><loc><cl11><sg>: <vbser><loc><cl11><sg><neg>:
-upo 	uko 	umo 	haupo 	hauko 	haumo  <vbser><loc><cl14><sg>: <vbser><loc><cl14><sg><neg>:
-kupo 	kuko 	kumo 	hakupo 	hakuko 	hakumo  <vbser><loc><cl15><sg>: <vbser><loc><cl15><sg><neg>:
-papo 	pako 	pamo 	hapapo 	hapako 	hapamo  <vbser><loc><cl16><sg>: <vbser><loc><cl16><sg><neg>:
-kupo 	kuko 	kumo 	hakupo 	hakuko 	hakumo  <vbser><loc><cl17><sg>: <vbser><loc><cl17><sg><neg>:
-mpo 	mko 	mmo 	hampo 	hamko 	hammo  <vbser><loc><cl18><sg>: <vbser><loc><cl18><sg><neg>:
+LEXICON V-Wa-Loc-N(4)
+#locatives with n
+#TODO: add classes
+kuwa:po kuwa:ko kuwa:mo <vbser><loc>:
 
-LEXICON V-Wa-Loc-Prn(8)
+LEXICON V-Wa-Loc-Prn(4)
 #locatives with prn
-#TODO: combine with VerbPersNum
-#TODO: add 'kuwa'
-nipo 	niko 	nimo 	sipo 	siko 	simo <vbser><loc><p1><sg>: <vbser><loc><p1><sg><neg>:
-tupo 	tuko 	tumo 	hatupo 	hatuko 	hatumo <vbser><loc><p1><pl>: <vbser><loc><p1><pl><neg>:
-upo 	uko 	umo 	hupo 	huko 	humo <vbser><loc><p2><sg>: <vbser><loc><p2><sg><neg>:
-mpo 	mko 	mmo 	hampo 	hamko 	hammo <vbser><loc><p2><pl>:  <vbser><loc><p2><pl><neg>:
-yupo 	yuko 	yumo 	hatupo 	hatuko 	hatumo <vbser><loc><p3><sg>: <vbser><loc><p3><sg><neg>:
-wapo 	wako 	wamo 	hawampo 	hawamko 	hawamo <vbser><loc><p3><pl>:  <vbser><loc><p3><pl><neg>:
+kuwa:po kuwa:ko kuwa:mo <vbser><loc>:
 
-LEXICON V-Wa-Rel(2)
+LEXICON V-Wa-Rel-Prs
 #relative form of to be
-#only happens in the present(affir. and neg.)
-kuwa<vbser><rel><prs>:li>    <vbser><rel>:
-kuwa<vbser><rel><prs>:si>    <vbser><rel><neg>:
+#only happens in the prs
+kuwa<vbser><rel><prs>:li>
+kuwa<vbser><rel><prs>:si>
 
 #=============================================================================!
 #                     Determiners/Adjective Morphotactics                     !
 #=============================================================================!
 
-#PATTERNS
-#Dem(1) | Dem(2) | Dem(3) Dem(4): | Dem(5):
+PATTERNS
+Dem(1) | Dem(2) | Dem(3) Dem(4): | Dem(5):
+Det(1) | Det(2) Det(3):
 
 LEXICON Dem(5)
 huyu  yule  huyo   <prn><dem><cl1><sg>: <adj><dem><cl1><sg>:
@@ -301,9 +283,9 @@ kwote kwokwote 	<det><cl17><sg>:
 mote momote <det><cl18><sg>:
 mwote mwomwote 	<det><cl18><sg>:
 
-#PATTERNS
-#Adj-Inv [<adj>]
-#:Adj-Suff Adj-Var [<adj>:] Adj-Suff:
+PATTERNS
+Adj-Inv [<adj>:]
+:Adj-Suff Adj-Var [<adj>:] Adj-Suff:
 
 LEXICON Adj-Suff
 <cl1><sg>:m
@@ -324,7 +306,7 @@ LEXICON Adj-Suff
 <cl18><sg>:mu
 
 
-  #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!                          L E X I C O N                                  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -444,42 +426,19 @@ usingizi:usingizi # "Sleep"
 
 #LEXICON XVIII-Stems
 
-
 #=============================================================================!
-#                               Pronouns                                      !
-#=============================================================================!
-
-LEXICON Prn-Mimi
-mimi
-
-LEXICON Prn-Sisi
-sisi
-
-LEXICON Prn-Wewe
-wewe
-
-LEXICON Prn-Nyinyi
-nyinyi
-
-LEXICON Prn-Yeye
-yeye
-
-LEXICON Prn-Wao 
-wao
-
-#=============================================================================!
-#                               Verb                                          !
+#                               Verbs                                         !
 #=============================================================================!
 
 
 LEXICON V-Stems
 kuangalia:angali # "to look"
-#kusoma:som # "to study"
-#kucheza:chez # "to play"
-#kufunga:fung # "to close"
-#kufungua:fungu # "to open"
-#kuona:on # "to see"
-#kusema:sem # "to say, tell"
+kusoma:som # "to study"
+kucheza:chez # "to play"
+kufunga:fung # "to close"
+kufungua:fungu # "to open"
+kuona:on # "to see"
+kusema:sem # "to say, tell"
 
 #kuwa:w # "to be"(extreme irregularity)
 
@@ -524,6 +483,12 @@ bingwa # winner/victor
 #=============================================================================!
 #                               Others                                        !
 #=============================================================================!
+PATTERNS
+Numerals Numeral-Suff
+Prep Prep-Suff
+
+LEXICON Numeral-Suff
+<num><ord>:
 
 LEXICON Numerals
 sifuri # zero
@@ -550,7 +515,10 @@ elfu # thousand
 milioni
 bilioni
 
-LEXICON Prepositions
+LEXICON Prep-Suff
+<pr>:
+
+LEXICON Prep
 kabla\ ya # before
 baada\ ya # after
 nje\ ya # outside of
