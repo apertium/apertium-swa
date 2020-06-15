@@ -8,7 +8,7 @@
 #                         Noun Morphotactics                                  !
 #=============================================================================!
 
-PATTERNS
+#PATTERNS
 #:I-II I-II-Stems I-II:
 #:I-Irr I-Irr-Stems I-Irr:
 #:III-IV III-IV-Stems III-IV:
@@ -98,7 +98,7 @@ LEXICON Prn-Wao-Tag
 #                         Verb Morphotactics                                  !
 #=============================================================================!
 
-PATTERNS
+#PATTERNS
 # subject concord always present
 # except in infitive, habitual, imperative
 
@@ -116,7 +116,7 @@ PATTERNS
 #:VerbPersNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VerbPersNum(1): [:e]
 #:VClassNum(1) [:si>] V-Stems V-Suffix [<subj><neg>:>] VClassNum(1): [:e]
 
-PATTERN VerbSubj
+
 
 LEXICON VerbPersNum(2)
 <p1><sg>:ni>  <p1><sg><neg>:si>
@@ -161,7 +161,7 @@ LEXICON V-TAM(2)
 #<irrps>:singali # irrealis past neg 1
 
 LEXICON V-Obj
-:mw # should be m(w)
+:mw # can also be mw
 :wa
 :ku
 :wa
@@ -185,36 +185,83 @@ LEXICON VInfImpHab(2)
 
 :hu <hab>:a
 
-LEXICON V-Rela
-<cl1>:ye>
-<cl2>:o>
-<cl3>:o>
-<cl4>:yo>
-<cl5>:lo>
-<cl6>yo>
-<cl7>:cho>
-<cl8>:vyo>
-<cl9>:yo>
-<cl10>:zo>
-<cl11>:o>
-<cl14>:o>
-<cl15>:ko>
-<cl16>:po>
-<cl17>:ko>
-<cl18:mo>
+LEXICON V-Rel-Suff
+#relative morpheme
+#TODO: remove class and genre reference
+<cl1><sg>:ye>
+<cl1><pl>:o>
+<cl3><sg>:o>
+<cl3><pl>:yo>
+<cl5><sg>:lo>
+<cl5><pl>:yo>
+<cl7><sg>:cho>
+<cl7><pl>:vyo>
+<cl9><sg>:yo>
+<cl9><pl>:zo>
+<cl11><sg>:o>
+<cl14><sg>:o>
+<cl15><sg>:ko>
+<cl16><sg>:po>
+<cl17><sg>:ko>
+<cl18><sg>:mo>
+
+LEXICON V-Wa-Irr
+#invariable copula
+#add tense
+kuwa<vbser>:ni
+kuwa<vbser>:si
+
+LEXICON V-Wa-Irr2
+#emphatic copula
+#emphasizing subj/noun
+#'it is (not) I'
+kuwa<vbser>:ndi>
+
+LEXICON V-Wa-Loc-N(8)
+#locatives with n classes
+#TODO: add tag to differentiate between po-ko-mo
+#TODO: combine with VClassNum
+#TODO: add 'kuwa'
+yupo 	yuko 	yumo 	hayupo 	hayuko 	hayumo  <vbser><loc><cl1><sg>: <vbser><loc><cl1><sg>:
+wapo 	wako 	wamo 	hawapo 	hawako 	hawamo  <vbser><loc><cl1><pl>: <vbser><loc><cl1><pl><neg>:
+upo 	uko 	umo 	haupo 	hauko 	haumo  <vbser><loc><cl3><sg>:  <vbser><loc><cl3><sg><neg>:
+ipo 	iko 	imo 	haipo 	haiko 	haimo  <vbser><loc><cl3><pl>:  <vbser><loc><cl3><pl><neg>:
+lipo 	liko 	limo 	halipo 	haliko 	halimo  <vbser><loc><cl5><sg>: <vbser><loc><cl5><sg><neg>:
+yapo 	yako 	yamo 	hayapo 	hayako 	hayamo  <vbser><loc><cl5><pl>: <vbser><loc><cl5><pl><neg>:
+kipo 	kiko 	kimo 	hakipo 	hakiko 	hakimo  <vbser><loc><cl7><sg>: <vbser><loc><cl7><sg><neg>:
+vipo 	viko 	vimo 	havipo 	haviko 	havimo  <vbser><loc><cl7><pl>: <vbser><loc><cl7><pl><neg>:
+ipo 	iko 	imo 	haipo 	haiko 	haimo  <vbser><loc><cl9><sg>:  <vbser><loc><cl9><sg><neg>:
+zipo 	ziko 	zimo 	hazipo 	haziko 	hazimo  <vbser><loc><cl9><pl>: <vbser><loc><cl9><pl><neg>:
+upo 	uko 	umo 	haupo 	hauko 	haumo  <vbser><loc><cl11><sg>: <vbser><loc><cl11><sg><neg>:
+upo 	uko 	umo 	haupo 	hauko 	haumo  <vbser><loc><cl14><sg>: <vbser><loc><cl14><sg><neg>:
+kupo 	kuko 	kumo 	hakupo 	hakuko 	hakumo  <vbser><loc><cl15><sg>: <vbser><loc><cl15><sg><neg>:
+papo 	pako 	pamo 	hapapo 	hapako 	hapamo  <vbser><loc><cl16><sg>: <vbser><loc><cl16><sg><neg>:
+kupo 	kuko 	kumo 	hakupo 	hakuko 	hakumo  <vbser><loc><cl17><sg>: <vbser><loc><cl17><sg><neg>:
+mpo 	mko 	mmo 	hampo 	hamko 	hammo  <vbser><loc><cl18><sg>: <vbser><loc><cl18><sg><neg>:
+
+LEXICON V-Wa-Loc-Prn(8)
+#locatives with prn
+#TODO: combine with VerbPersNum
+#TODO: add 'kuwa'
+nipo 	niko 	nimo 	sipo 	siko 	simo <vbser><loc><p1><sg>: <vbser><loc><p1><sg><neg>:
+tupo 	tuko 	tumo 	hatupo 	hatuko 	hatumo <vbser><loc><p1><pl>: <vbser><loc><p1><pl><neg>:
+upo 	uko 	umo 	hupo 	huko 	humo <vbser><loc><p2><sg>: <vbser><loc><p2><sg><neg>:
+mpo 	mko 	mmo 	hampo 	hamko 	hammo <vbser><loc><p2><pl>:  <vbser><loc><p2><pl><neg>:
+yupo 	yuko 	yumo 	hatupo 	hatuko 	hatumo <vbser><loc><p3><sg>: <vbser><loc><p3><sg><neg>:
+wapo 	wako 	wamo 	hawampo 	hawamko 	hawamo <vbser><loc><p3><pl>:  <vbser><loc><p3><pl><neg>:
+
+LEXICON V-Wa-Rel(2)
+#relative form of to be
+#only happens in the present(affir. and neg.)
+kuwa<vbser><rel><prs>:li>    <vbser><rel>:
+kuwa<vbser><rel><prs>:si>    <vbser><rel><neg>:
 
 #=============================================================================!
 #                     Determiners/Adjective Morphotactics                     !
 #=============================================================================!
 
-PATTERNS
-#Dem(1)|Demonst(2)|Dem(3) Dem(4)|Dem(5)
-#Dem(1) Dem(4)
-#Dem(2) Dem(4)
-#Dem(3) Dem(4)
-#Dem(1) Dem(5)
-#Dem(2) Dem(5)
-#Dem(3) Dem(5)
+#PATTERNS
+#Dem(1) | Dem(2) | Dem(3) Dem(4): | Dem(5):
 
 LEXICON Dem(5)
 huyu  yule  huyo   <prn><dem><cl1><sg>: <adj><dem><cl1><sg>:
@@ -254,9 +301,9 @@ kwote kwokwote 	<det><cl17><sg>:
 mote momote <det><cl18><sg>:
 mwote mwomwote 	<det><cl18><sg>:
 
-PATTERNS
-Adj-Inv [<adj>]
-:Adj-Suff Adj-Var [<adj>:] Adj-Suff:
+#PATTERNS
+#Adj-Inv [<adj>]
+#:Adj-Suff Adj-Var [<adj>:] Adj-Suff:
 
 LEXICON Adj-Suff
 <cl1><sg>:m
@@ -267,8 +314,8 @@ LEXICON Adj-Suff
 <cl5><pl>:ma
 <cl7><sg>:ki
 <cl7><pl>:vi
-<cl9><sg>:n # fix according to corpus
-<cl9><pl>:n # fix according to corpus
+<cl9><sg>:n # fix after coverage testing
+<cl9><pl>:n # fix after coverage testing
 <cl11><sg>:u
 <cl14><sg>:m
 <cl15><sg>:ku
@@ -277,7 +324,7 @@ LEXICON Adj-Suff
 <cl18><sg>:mu
 
 
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!                          L E X I C O N                                  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -434,6 +481,8 @@ kuangalia:angali # "to look"
 #kuona:on # "to see"
 #kusema:sem # "to say, tell"
 
+#kuwa:w # "to be"(extreme irregularity)
+
 #=============================================================================!
 #                               Adjectives                                    !
 #=============================================================================!
@@ -470,3 +519,66 @@ muhimu # important
 shujaa # brave
 stadi # steadfast
 bingwa # winner/victor
+
+
+#=============================================================================!
+#                               Others                                        !
+#=============================================================================!
+
+LEXICON Numerals
+sifuri # zero
+moja # one
+mbili # two
+tatu # three
+nne # four
+tano # five
+sita # six
+saba # seven
+nane # eight
+tisa # nine
+kumi # ten
+ishirini # twenty
+thelathini # thirty
+arobaini # forty
+hamsini # fifty
+sitini # sixty
+sabini # seventy
+themanini # eighty
+tisini # ninety
+mia # hundred
+elfu # thousand
+milioni
+bilioni
+
+LEXICON Prepositions
+kabla\ ya # before
+baada\ ya # after
+nje\ ya # outside of
+ndani\ ya # inside; in
+juu\ ya # on top of; about
+chini\ ya  # under; below
+baina\ ya # between
+kati\ ya # between; in the middle of; among
+mbele\ ya # in front of
+nyuma\ ya # behind
+karibu\ na # near; close
+mbali\ na # far from; far
+kando\ ya # beside; along
+mpaka # until
+hadi # until; ‘til
+kisha # then; and then
+tangu # since, from
+toka # from; since
+katika # in; inside; on
+miongoni\ mwa # among    
+toka # from
+kutoka # from
+katikati\ ya # in between
+usoni\ pa # in the face of; in front of 
+ukingoni\ mwa # at the edge / bank of
+mvunguni\ mwa # under; beneath
+pembeni\ mwa # in the corner of
+ubavuni\ pa # at the side of; beside
+machoni\ pa # in front of/ near
+kisogoni\ pa # behind, at the back
+
