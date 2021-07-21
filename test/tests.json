@@ -1,0 +1,6 @@
+{
+    "swa": {
+        "input": "swa-input.txt",
+        "mode": "swa-morph"
+    }
+}

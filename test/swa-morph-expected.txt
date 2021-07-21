@@ -1,0 +1,8 @@
+[5baI0clBtPt4#0] ^wote/wote<det><cl1><pl>/wote<det><cl3><sg>/wote<det><cl14><sg>/wote<det><cl11><sg>$
+[/5baI0clBtPt4]
+[bz9wks16X8Ao#0] ^faa/kufaa<vblex><imp><sg>/side<n><cl5><sg>$
+[/bz9wks16X8Ao]
+[eisXghDdEvbH#0] ^tayo/tayo<n><cl5><sg>$
+[/eisXghDdEvbH]
+[tsBrtElRUL8L#0] ^nne/nne<num><ord>$
+[/tsBrtElRUL8L]
